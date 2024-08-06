@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { EyeIcon } from '@heroicons/react/24/outline';
-import ConsultationDetailsModal from './ConsultationDetailsModal';
-import OwnerDetailsModal from './OwnerDetailsModal';
-import Loading from './Loading'; // Importa el componente Loading
+import ConsultationDetailsModal from '../views/ConsultationDetailsModal';
+import OwnerDetailsModal from '../../owners/components/OwnerDetailsModal';
+import Loading from '../../components/Loading'; // Importa el componente Loading
 
 const DataTable = () => {
   const [selectedConsultation, setSelectedConsultation] = useState(null);

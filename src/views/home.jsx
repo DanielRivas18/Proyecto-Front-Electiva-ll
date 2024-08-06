@@ -6,7 +6,7 @@ function Home() {
         {
             title: "Consultas Veterinarias",
             description: "Ofrecemos consultas completas para asegurar el bienestar de tus mascotas. Diagnóstico, tratamiento y seguimiento personalizado.",
-            image: "consulta-veterinaria.jpg"
+            image: "consultasVeterinarias.jpeg"
         },
         {
             title: "Vacunación y Desparasitación",

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import OwnerSearch from './OwnerSearch';
+import OwnerSearch from '../../owners/components/OwnerSearch';
 
 function NewDogForm() {
   const [dog, setDog] = useState({

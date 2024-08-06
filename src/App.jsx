@@ -1,17 +1,17 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './index.css';
-import Loading from './Loading';
+import Loading from './components/Loading';
 
-const Home = lazy(() => import('./home'));
-const Services = lazy(() => import('./services'));
-const DataTable = lazy(() => import('./dataTable'));
-const NewOwnerForm = lazy(() => import('./NewOwnerForm'));
-const NewDogForm = lazy(() => import('./NewDogForm'));
-const RegisterConsultation = lazy(() => import('./RegisterConsultation'));
-const PetDetails = lazy(() => import('./PetDetails'));
-const About = lazy(() => import('./About'));
-const OwnerDetails = lazy(() => import('./OwnerDetails'));
+const Home = lazy(() => import('./views/home'));
+const Services = lazy(() => import('./views/services'));
+const DataTable = lazy(() => import('./medical-records/components/dataTable'));
+const NewOwnerForm = lazy(() => import('./owners/views/NewOwnerForm'));
+const NewDogForm = lazy(() => import('./pets/views/NewDogForm'));
+const RegisterConsultation = lazy(() => import('./medical-records/views/RegisterConsultation'));
+const PetDetails = lazy(() => import('./pets/components/PetDetails'));
+const About = lazy(() => import('./views/About'));
+const OwnerDetails = lazy(() => import('./owners/components/OwnerDetails'));
 
 function Header() {
   return (

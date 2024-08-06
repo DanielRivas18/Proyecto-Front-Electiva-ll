@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 function Services() {
   const serviceSections = [
-  
+
     {
       sectionTitle: "Registro de Mascotas y Clientes",
       services: [
         {
-          title: "Registrar Nuevo Perro",
+          title: "Registrar Nueva Mascota",
           description: "Registra la información de un nuevo perro para llevar un seguimiento de su salud y visitas.",
           link: "/new-dog",
           bgColor: "bg-green-600",
@@ -24,14 +24,14 @@ function Services() {
         {
           title: "Ver Datos de Dueños",
           description: "Consulta la información detallada de todos los dueños registrados en nuestro sistema.",
-          link: "/owner-details", 
-          bgColor: "bg-yellow-500",
-          hoverColor: "hover:bg-yellow-600",
+          link: "/owner-details",
+          bgColor: "bg-green-600",
+          hoverColor: "hover:bg-green-700",
         },
 
       ],
     },
-      {
+    {
       sectionTitle: "Gestión de servicios ofrecidos ",
       services: [
         {
@@ -84,12 +84,16 @@ function Services() {
                     {service.title}
                   </button>
                 </Link>
+
               </div>
+
             ))}
           </div>
+
         </div>
       ))}
     </div>
+
   );
 }
 

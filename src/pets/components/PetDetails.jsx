@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Loading from './Loading'; // Importa el componente Loading
+import Loading from '../../components/Loading'; // Importa el componente Loading
 
 function PetDetails() {
   const [pets, setPets] = useState([]);

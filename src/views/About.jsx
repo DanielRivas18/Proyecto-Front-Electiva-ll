@@ -8,7 +8,7 @@ function About() {
         {/* Sección de Introducción */}
         <section className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
           <div className="flex-1">
-            <img src="about-us.jpg" alt="Nosotros" className="w-full h-auto rounded-lg shadow-lg" />
+            <img src="logo.png" alt="Nosotros" className="w-full h-auto rounded-lg shadow-lg" />
           </div>
           <div className="flex-1">
             <h2 className="text-3xl font-bold mb-4 text-green-600">Sobre Nosotros</h2>

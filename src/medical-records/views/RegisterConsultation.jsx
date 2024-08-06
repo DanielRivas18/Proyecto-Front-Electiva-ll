@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 function RegisterConsultation() {
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm({
+  const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm({
     defaultValues: {
       visitDate: new Date().toISOString().split('T')[0], // Fecha actual
       services: [] // Inicializar como un array vacío
@@ -27,7 +27,6 @@ function RegisterConsultation() {
     'Consejería sobre comportamiento animal',
     'Asesoramiento sobre prevención de enfermedades'
   ]);
-  
 
   useEffect(() => {
     // Fetch list of pets
@@ -71,23 +70,26 @@ function RegisterConsultation() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">Servicios</label>
-          <div className="space-y-2">
-            {services.map(service => (
-              <div key={service} className="flex items-center">
-                <input
-                  type="checkbox"
-                  value={service}
-                  onChange={handleServiceChange}
-                  id={`service-${service}`}
-                  {...register('services')}
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                />
-                <label htmlFor={`service-${service}`} className="ml-2 text-sm font-medium text-gray-700">
-                  {service}
-                </label>
-              </div>
-            ))}
-          </div>
+          <details className="mt-1">
+            <summary className="cursor-pointer text-blue-600">Seleccionar servicios</summary>
+            <div className="space-y-2 mt-2">
+              {services.map(service => (
+                <div key={service} className="flex items-center">
+                  <input
+                    type="checkbox"
+                    value={service}
+                    onChange={handleServiceChange}
+                    id={`service-${service}`}
+                    {...register('services')}
+                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  />
+                  <label htmlFor={`service-${service}`} className="ml-2 text-sm font-medium text-gray-700">
+                    {service}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </details>
           {errors.services && <p className="text-red-500 text-sm">{errors.services.message}</p>}
         </div>
 

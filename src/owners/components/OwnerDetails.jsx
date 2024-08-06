@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Loading from './Loading'; // Importa el componente Loading
+import Loading from '../../components/Loading'; // Importa el componente Loading
 
 function OwnerDetails() {
   const [owners, setOwners] = useState([]);
