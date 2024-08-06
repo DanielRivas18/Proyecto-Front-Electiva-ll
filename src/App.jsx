@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './index.css';
-import Home from './home';
-import Services from './services';
-import DataTable from './dataTable';
-import NewOwnerForm from './NewOwnerForm';
-import NewDogForm from './NewDogForm';
+import Loading from './Loading';
+
+const Home = lazy(() => import('./home'));
+const Services = lazy(() => import('./services'));
+const DataTable = lazy(() => import('./dataTable'));
+const NewOwnerForm = lazy(() => import('./NewOwnerForm'));
+const NewDogForm = lazy(() => import('./NewDogForm'));
+const RegisterConsultation = lazy(() => import('./RegisterConsultation'));
+const PetDetails = lazy(() => import('./PetDetails'));
+const About = lazy(() => import('./About'));
+const OwnerDetails = lazy(() => import('./OwnerDetails'));
 
 function Header() {
   return (
     <header className="flex justify-between items-center p-4 bg-green-600 text-white">
       <div className="flex items-center">
-        <img src="logo.jpeg" alt="Logo de la veterinaria" className="h-12 mr-4" />
+        <img src="logo.png" alt="Logo de la veterinaria" className="h-12 mr-4" />
         <h1 className="text-2xl font-bold">Veterinaria Salud Animal</h1>
       </div>
       <nav className="flex-grow text-right">
@@ -28,17 +34,13 @@ function Header() {
           <li className="ml-5">
             <Link to="/contact" className="text-white no-underline text-lg">Contacto</Link>
           </li>
-         {/*  <li className="ml-5">
+          {/* <li className="ml-5">
             <Link to="/visits" className="text-white no-underline text-lg">Historial de Visitas</Link>
           </li> */}
         </ul>
       </nav>
     </header>
   );
-}
-
-function About() {
-  return <div>Nosotros</div>;
 }
 
 function Contact() {
@@ -49,15 +51,20 @@ function App() {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/visits" element={<DataTable />} />
-        <Route path="/new-owner" element={<NewOwnerForm />} />
-        <Route path="/new-dog" element={<NewDogForm />} />
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/visits" element={<DataTable />} />
+          <Route path="/new-owner" element={<NewOwnerForm />} />
+          <Route path="/new-dog" element={<NewDogForm />} />
+          <Route path="/register-consultation" element={<RegisterConsultation />} />
+          <Route path="/pet-details" element={<PetDetails />} />
+          <Route path="/owner-details" element={<OwnerDetails />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

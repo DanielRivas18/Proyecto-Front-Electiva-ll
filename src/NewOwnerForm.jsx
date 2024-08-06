@@ -18,7 +18,7 @@ function NewOwnerForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/owners', owner);
+      await axios.post('https://proyecto-back-electiva-ll.onrender.com/api/owners', owner);
       alert('Dueño agregado exitosamente');
       setOwner({ name: '', numDocumento: '', address: '', phone: '', email: '' });
     } catch (error) {
